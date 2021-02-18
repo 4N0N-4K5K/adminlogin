@@ -24,16 +24,16 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
 
-from src.config import Config
+from src.core.config import Config
 from src.core.color import Color
 
 
-class Strings:
+class Strings(Config):
     """
     Constructor and Attributes
     """
-    def __init__(self, config):
-        self._config = config
+    def __init__(self):
+        super().__init__()
 
     @staticmethod
     def helper():
@@ -62,32 +62,25 @@ Optional Arguments:
         Print the pure colored
         Heimdall banner.
         """
-        Color.println(r"""{O}__________________________________________________
-                _               _       _ _ 
-      /\  /\___(_)_ __ ___   __| | __ _| | |
-     / /_/ / _ \ | '_ ` _ \ / _` |/ _` | | |
-    / __  /  __/ | | | | | | (_| | (_| | | |
-    \/ /_/ \___|_|_| |_| |_|\__,_|\__,_|_|_|{W}""")
+        Color.println(r"""{O}_____________________________________________________________
+                    _               _       _ _ 
+          /\  /\___(_)_ __ ___   __| | __ _| | |
+         / /_/ / _ \ | '_ ` _ \ / _` |/ _` | | |
+        / __  /  __/ | | | | | | (_| | (_| | | |
+        \/ /_/ \___|_|_| |_| |_|\__,_|\__,_|_|_|{W}""")
 
     def banner_description(self):
         """
         Print design and
         author specifications.
         """
-        print(f"""\n               Version: {self._config['Version']}
-    Author: {self._config['Author']} (Security Researcher)
-        GitHub: {self._config['GitHub']}
-        Twitter: {self._config['Twitter']}""")
-        Color.println("{O}__________________________________________________{W}\n")
+        print(f"""\n                      Version: {self.get_version}
+    Author: {self.get_author} (Security Researcher)
+        GitHub: {self.get_github}""")
+        Color.println("{O}_____________________________________________________________{W}\n")
 
 
 if __name__ == '__main__':
-    Configuration = Config("Ygor Simões",                  # Author
-                           2.1,                            # Version
-                           "https://github.com/CR3DN3",    # GitHub
-                           "https://twitter.com/CR3DN3 ")  # Twitter
-
-    configs = Configuration.get_configs()
-    String = Strings(configs)
+    String = Strings()
     String.banner()
     String.banner_description()

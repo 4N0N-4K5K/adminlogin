@@ -30,7 +30,7 @@ import sys
 
 import requests
 
-from src.config import Config
+from src.core.config import Config
 from src.core.color import Color
 
 

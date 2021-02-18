@@ -25,9 +25,8 @@ SOFTWARE.
 """
 
 import os
-from random import choice
 
-from src.config import Config
+from random import choice
 from src.core.color import Color
 
 
@@ -117,10 +116,3 @@ class Setter:
         Returns the selected wordlist.
         """
         return wordlist
-
-
-if __name__ == '__main__':
-    Configuration = Config("Ygor Simões",                  # Author
-                           2.0,                            # Version
-                           "https://github.com/CR3DN3",    # GitHub
-                           "https://twitter.com/CR3DN3")  # Twitter

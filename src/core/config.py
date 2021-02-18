@@ -27,9 +27,6 @@ SOFTWARE.
 import json
 import os
 import pathlib
-import random
-
-from requests import get
 
 
 class Config:
@@ -39,7 +36,7 @@ class Config:
 
     def __init__(self):
         # Load archive config.json
-        self.path_dir = pathlib.Path("../../")
+        self.path_dir = pathlib.Path("../../../")
         dir_config_json = self.path_dir.glob("**/config.json")
         for dir_file in dir_config_json:
             with open(os.path.realpath(dir_file)) as file_config_json:

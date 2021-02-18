@@ -26,7 +26,7 @@ SOFTWARE.
 
 import argparse
 
-from src.config import Config
+from src.core.config import Config
 from src.core.color import Color
 from src.core.strings import Strings
 from src.core.update import Update
@@ -34,18 +34,6 @@ from src.core.update import Update
 from src.finder import Finder
 from src.utils.check import Check
 from src.utils.setter import Setter
-
-"""
-Resolves some Heimdall 
-settings for better operation.
-"""
-Configuration = Config("Ygor Simões",                  # Author
-                       "v4.1-stable",                  # Version
-                       "https://github.com/CR3DN3",    # GitHub
-                       "https://twitter.com/CR3DN3 ")  # Twitter
-
-configs = Configuration.get_configs()
-updates = Configuration.updates()
 
 """
 Try to import libraries.
@@ -115,7 +103,7 @@ if __name__ == '__main__':
     Get the Heimdall settings, updates and 
     pass it on to the Strings class.
     """
-    String = Strings(configs)
+    String = Strings()
 
     """
     Print the banner along with 
@@ -133,10 +121,6 @@ if __name__ == '__main__':
     if args.update and update_verify:
         update.upgrade()
         exit()
-
-    print("\n\n\nACABOU!\n\n\n")
-    exit()
-
     """
     Activates the "helper()" method if no 
     targets are passed in the arguments.
@@ -148,7 +132,7 @@ if __name__ == '__main__':
         """
         Format the target URL accordingly.
         """
-        args.url = Configuration.target(args.url)
+        args.url = Config.target(args.url)
 
         """
         Instance the "Request" class.

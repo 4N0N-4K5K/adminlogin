@@ -29,7 +29,7 @@ from datetime import datetime
 
 from requests import get
 
-from src.config import Config
+from src.core.config import Config
 from src.core.color import Color
 
 date_now = datetime.now().strftime("%m-%d-%Y - %H-%M-%S")

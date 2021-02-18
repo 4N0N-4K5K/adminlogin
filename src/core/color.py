@@ -24,8 +24,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
 
-import sys
-
 
 class Color:
     """ Helper object for easily printing colored text to the terminal. """
@@ -46,7 +44,7 @@ class Color:
 
     # Helper string replacements
     replacements = {
-        "{+}": "{W}{D}[{W}{P}+{W}{D}]{W}",
+        "{+}": "{W}{D}[{W}{O}+{W}{D}]{W}",
         "{-}": "{W}{D}[{W}{GR}-{W}{D}]{W}",
         "{!}": "{O}[{R}!{O}]{W}",
         "{?}": "{W}[{C}?{W}]"
