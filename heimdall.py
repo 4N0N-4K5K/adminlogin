@@ -1,13 +1,37 @@
 #!/usr/bin/env python3
 
+"""
+MIT License
+
+Copyright (c) 2021 Ygor Simões
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+"""
+
 import argparse
 
 from src.config import Config
 from src.core.color import Color
 from src.core.strings import Strings
-from src.finder import Finder
+from src.core.update import Update
 
-from src.utils.update import Update
+from src.finder import Finder
 from src.utils.check import Check
 from src.utils.setter import Setter
 
@@ -29,7 +53,7 @@ Try to import libraries.
 try:
     from requests import get
 except ModuleNotFoundError as ex:
-    Color.pl("{!} %s Please install requirements: {R}pip3 install -r requirements.txt{W}" % ex)
+    Color.println("{!} %s Please install requirements: {R}pip3 install -r requirements.txt{W}" % ex)
 
 """
 Capture all passed 
@@ -104,14 +128,14 @@ if __name__ == '__main__':
     """
     Check for available updates.
     """
-    updates_automatic = updates['updates_automatic']
-    if args.no_update:
-        updates_automatic = False
-    if updates_automatic or args.update:
-        Updates = Update(configs, updates)
-        if Updates.verify():
-            Updates.upgrade()
-            exit()
+    update = Update()
+    update_verify = update.verify(args.update)
+    if args.update and update_verify:
+        update.upgrade()
+        exit()
+
+    print("\n\n\nACABOU!\n\n\n")
+    exit()
 
     """
     Activates the "helper()" method if no 
@@ -146,10 +170,10 @@ if __name__ == '__main__':
         Checkup = Check(args)
         try:
             Checkup.target()
-            Color.pl("{+} Target On: {G}%s{W}" % args.url)
+            Color.println("{+} Target On: {G}%s{W}" % args.url)
         except Exception as ex:
-            Color.pl("{!} Error: %s" % ex)
-            Color.pl("{!} Please verify your target.")
+            Color.println("{!} Error: %s" % ex)
+            Color.println("{!} Please verify your target.")
             exit()
 
         """
@@ -165,5 +189,5 @@ if __name__ == '__main__':
         try:
             ExploitFinder.dashboard()
         except KeyboardInterrupt as ex:
-            Color.pl("\n{!} CTRL + C has pressed. %s" % ex)
-    Color.pl("{+} Finished!    :)")
+            Color.println("\n{!} CTRL + C has pressed. %s" % ex)
+    Color.println("{+} Finished!    :)")

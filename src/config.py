@@ -1,42 +1,59 @@
 #!/usr/bin/env python3
 
+"""
+MIT License
+
+Copyright (c) 2021 Ygor Simões
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+"""
+
+import json
 import os
+import pathlib
+import random
+
+from requests import get
 
 
 class Config:
     """
     Constructor and Attributes
     """
-    def __init__(self, author, version, github, twitter):
-        self._author = author
-        self._version = version
-        self._github = github
-        self._twitter = twitter
 
-    def get_configs(self):
-        """
-        Returns the settings
-        in an object structure.
-        """
-        configs = {
-            "Author": self._author,
-            "Version": self._version,
-            "GitHub": self._github,
-            "Twitter": self._twitter
-        }
-        return configs
+    def __init__(self):
+        # Load archive config.json
+        self.path_dir = pathlib.Path("../../")
+        dir_config_json = self.path_dir.glob("**/config.json")
+        for dir_file in dir_config_json:
+            with open(os.path.realpath(dir_file)) as file_config_json:
+                self.__config_json = json.load(file_config_json)
 
-    def updates(self):
-        """
-        Defines configuration variables
-        for the Update class.
-        """
-        updates = {
-            "api_repository": "https://api.github.com/repos/CR3DN3/Heimdall/releases",
-            "repository": self._github + "/Heimdall",
-            "updates_automatic": True
-        }
-        return updates
+        # Specifications
+        self.__authors = self.__config_json["specifications"]["author"]
+        self.__version = self.__config_json["specifications"]["version"]
+        self.__github = self.__config_json["specifications"]["github"]
+        self.__email = self.__config_json["specifications"]["email"]
+
+        # Update and Upgrade
+        self.__api_repository = self.__config_json["update"]["api_repository"]
+        self.__automatic_upgrades = bool(self.__config_json["update"]["automatic_upgrades"])
 
     @staticmethod
     def target(url):
@@ -64,31 +81,30 @@ class Config:
 
     # Getters
     @property
-    def author(self):
-        return self._author
+    def get_author(self):
+        return self.__authors
 
     @property
-    def version(self):
-        return self._version
+    def get_version(self):
+        return self.__version
+
+    @property
+    def get_github(self):
+        return self.__github
+
+    @property
+    def get_email(self):
+        return self.__email
 
     @property
     def os(self):
         return self.os
 
+    # Update and Upgrade
     @property
-    def github(self):
-        return self.github
+    def get_repository(self) -> str:
+        return self.__api_repository
 
     @property
-    def twitter(self):
-        return self._twitter
-
-
-if __name__ == '__main__':
-    Configuration = Config("Ygor Simões",  # Author
-                           2.0,  # Version
-                           "https://github.com/CR3DN3",  # GitHub
-                           "https://twitter.com/CR3DN3")  # Twitter
-
-    config = Configuration.get_configs()
-    print(config)
+    def get_automatic_upgrades(self) -> bool:
+        return self.__automatic_upgrades

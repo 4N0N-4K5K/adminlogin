@@ -1,77 +1,91 @@
 #!/usr/bin/env python3
 
+"""
+MIT License
+
+Copyright (c) 2021 Ygor Simões
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+"""
+
 import sys
 
 
 class Color:
-    """
-    Helper object for easily printing
-    colored text to the terminal.
-    """
+    """ Helper object for easily printing colored text to the terminal. """
 
     # Basic console colors
     colors = {
-        'W': '\033[0m',  # white (normal)
-        'R': '\033[31m',  # red
-        'G': '\033[32m',  # green
-        'O': '\033[33m',  # orange
-        'B': '\033[34m',  # blue
-        'P': '\033[35m',  # purple
-        'C': '\033[36m',  # cyan
-        'GR': '\033[37m',  # gray
-        'D': '\033[2m'  # dims current color. {W} resets.
+        "W": "\033[0m",  # white (normal)
+        "PK": "\033[95m",  # pink
+        "R": "\033[31m",  # red
+        "G": "\033[32m",  # green
+        "O": "\033[33m",  # orange
+        "B": "\033[34m",  # blue
+        "P": "\033[35m",  # purple
+        "C": "\033[36m",  # cyan
+        "GR": "\033[37m",  # gray
+        "D": "\033[2m"  # dims current color. {W} resets.
     }
 
     # Helper string replacements
     replacements = {
-        '{+}': '{W}{D}[{W}{G}+{W}{D}]{W}',
-        '{-}': '{W}{D}[{W}-{D}]{W}',
-        '{!}': '{O}[{R}!{O}]{W}',
-        '{?}': '{W}[{C}?{W}]'
+        "{+}": "{W}{D}[{W}{P}+{W}{D}]{W}",
+        "{-}": "{W}{D}[{W}{GR}-{W}{D}]{W}",
+        "{!}": "{O}[{R}!{O}]{W}",
+        "{?}": "{W}[{C}?{W}]"
     }
 
-    last_sameline_length = 0
-
     @staticmethod
-    def p(text):
-        """
-        Prints text using colored
-        format on same line.
-
-        Example:
-            Color.p('{R}This text is red. {W} This text is white')
-        """
-        sys.stdout.write(Color.s(text))
-        sys.stdout.flush()
-        if '\r' in text:
-            text = text[text.rfind('\r') + 1:]
-            Color.last_sameline_length = len(text)
-        else:
-            Color.last_sameline_length += len(text)
-
-    @staticmethod
-    def pl(text):
-        """
-        Returns colored string
-        """
-        Color.p('%s\n' % text)
-        Color.last_sameline_length = 0
-
-    @staticmethod
-    def s(text):
-        """
-        Returns colored string
-        """
-        output = text
+    def return_message(message: str) -> str:
+        """ Returns colored string """
+        output = message
         for (key, value) in Color.replacements.items():
             output = output.replace(key, value)
         for (key, value) in Color.colors.items():
-            output = output.replace('{%s}' % key, value)
+            output = output.replace("{%s}" % key, value)
         return output
+
+    @staticmethod
+    def print(message: str) -> None:
+        """
+        Prints text using colored format on same line.
+        Example:
+            Color.p("R}This text is red. {W} This text is white")
+        """
+        import sys
+        sys.stdout.write(Color.return_message(message))
+        sys.stdout.flush()
+
+    @staticmethod
+    def println(message: str) -> None:
+        """Prints text using colored format with trailing new line."""
+        Color.print("%s\n" % message)
+
+    @staticmethod
+    def exception(message: str, ex: Exception or str) -> None:
+        """ Prints message exception """
+        Color.println(Color.return_message("{!} {R}%s{W}: " % message) + str(ex))
 
 
 if __name__ == '__main__':
-    Color.pl('{R}Testing {G}One {C}Two {P}Three {W}Done')
-    print(Color.s('{C}Testing {P}String{W}'))
-    Color.pl('{+} Good line')
-    Color.pl('{!} Danger')
+    Color.println('{R}Testing {G}One {C}Two {P}Three {W}Done')
+    print(Color.return_message('{C}Testing {P}String{W}'))
+    Color.println('{+} Good line')
+    Color.println('{!} Danger')

@@ -1,5 +1,29 @@
 #!/usr/bin/env python3
 
+"""
+MIT License
+
+Copyright (c) 2021 Ygor Simões
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+"""
+
 import os
 from datetime import datetime
 
@@ -25,7 +49,7 @@ class Finder:
         """
         Heimdall, find!
         """
-        Color.pl("{+} User-Agent: %s" % self._user_agent['User-Agent'])
+        Color.println("{+} User-Agent: %s" % self._user_agent['User-Agent'])
 
         """
         Format the target URL as simple.
@@ -38,7 +62,7 @@ class Finder:
         Create the output directory.
         """
         os.makedirs(path_out)
-        Color.pl("{+} Output: '%s'" % path_out)
+        Color.println("{+} Output: '%s'" % path_out)
 
         """
         Creates the "info.txt" file to 
@@ -55,7 +79,7 @@ class Finder:
         """
         Starts the request loop to the target.
         """
-        Color.pl("\n{+} {G}Heimdall, find the dashboard!{W}\n")
+        Color.println("\n{+} {G}Heimdall, find the dashboard!{W}\n")
         for link in self._wordlist:
             target = self._url + link.rstrip("\n")
             request = get(target, proxies=self._proxy, headers=self._user_agent)
@@ -67,7 +91,7 @@ class Finder:
                 output_sites_found = open(os.path.realpath(f"{path_out}/sites-found.txt"), 'a')
                 output_sites_found.writelines("\n" + target)
                 output_sites_found.close()
-                Color.pl("{+} {G}%s{W}" % target)
+                Color.println("{+} {G}%s{W}" % target)
             else:
                 """
                 Creates the file "sites-not-found.txt" to
@@ -76,4 +100,4 @@ class Finder:
                 output_sites_not_found = open(os.path.realpath(f"{path_out}/sites-not-found.txt"), 'a')
                 output_sites_not_found.write("\n" + target)
                 output_sites_not_found.close()
-                Color.pl("{-} %s" % target)
+                Color.println("{-} %s" % target)
