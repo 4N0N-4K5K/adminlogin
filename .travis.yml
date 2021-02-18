@@ -1,9 +1,7 @@
 language: python
 python:
-  - 3.6
-  - 3.8
   - 3.9
 install:
   - pip3 install -r requirements.txt
 script:
-  - python3 heimdall.py --url http://testphp.vulnweb.com/
+  - python3.9 heimdall.py --url http://testphp.vulnweb.com/
