@@ -16,7 +16,7 @@ It is recommended that you use an operating system with a focus on Pentest.
 
 ## Installation
 
-You can download the latest tarball by clicking [here](https://github.com/ygorsimoes/Heimdall/tarball/master) or latest zipball by clicking [here](https://github.com/CR3DN3/Heimdall/zipball/master).
+You can download the latest tarball by clicking [here](https://github.com/ygorsimoes/Heimdall/tarball/master) or latest zipball by clicking [here](https://github.com/ygorsimoes/Heimdall/zipball/master).
 
     $ git clone https://github.com/ygorsimoes/Heimdall.git
     $ cd Heimdall && pip3 install -r requirements.txt
