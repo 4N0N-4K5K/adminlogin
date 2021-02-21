@@ -71,7 +71,7 @@ class Update(Config):
             process = subprocess.Popen(f"git checkout . && git pull {self.get_github}Heimdall", shell=True,
                                        stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
             output = process.communicate()
-            Color.println("{+} Nagazaky was successfully updated.")
+            Color.println("{+} Heimdall was successfully updated.")
             Color.println("{+} Check the new release notes at: {"
                           "G}https://github.com/ygorsimoes/Heimdall/commits/master{W}")
         except Exception as e:
