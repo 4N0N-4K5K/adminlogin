@@ -1,12 +1,12 @@
 {
   "specifications": {
     "author": "Ygor Simões (@ygorsimoes)",
-    "version": "5.0-stable",
+    "version": "5.1-stable",
     "github": "https://github.com/ygorsimoes/Heimdall",
     "email": "contato.ygorsimoes@gmail.com"
   },
   "update": {
     "api_repository": "https://raw.githubusercontent.com/ygorsimoes/Heimdall/master/src/core/config.json",
-    "automatic_upgrades": "True"
+    "automatic_verify_upgrades": "False"
   }
 }

@@ -116,11 +116,15 @@ if __name__ == '__main__':
     """
     Check for available updates.
     """
+    conf = Config()
     update = Update()
-    update_verify = update.verify(args.update)
-    if args.update and update_verify:
+
+    if args.update and update.verify(args.update):
         update.upgrade()
-        exit()
+
+    if conf.get_automatic_verify_upgrades and not args.update:
+        update.verify(args.update)
+
     """
     Activates the "helper()" method if no 
     targets are passed in the arguments.

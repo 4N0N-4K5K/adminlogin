@@ -49,6 +49,7 @@ class Update(Config):
         # Checks whether the repository version is different from the current version.
         if repository_version != self.get_version:
             Color.println("\n{+} New version available: {G}%s{W}" % repository_version)
+            Color.println("{+} Use the {G}--update{W} argument to update Heimdall\n")
             return True
         else:
             if arg_update:

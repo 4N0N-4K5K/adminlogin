@@ -44,7 +44,8 @@ Optional Arguments:
 
 ## Capturas de tela
 
-![Screenshot](https://raw.githubusercontent.com/ygorsimoes/Heimdall/master/doc/images/screenshots/screenshot.png)
+![Screenshot](https://raw.githubusercontent.com/ygorsimoes/Heimdall/master/doc/images/screenshots/5.1--stable/screenshot01.png)
+![Screenshot](https://raw.githubusercontent.com/ygorsimoes/Heimdall/master/doc/images/screenshots/5.1--stable/screenshot02.png)
 
 Você pode visitar a coleção de capturas de tela que demonstram o funcionamento em algumas plataformas clicando [aqui](https://github.com/ygorsimoes/Heimdall/tree/master/doc/images/screenshots).
 

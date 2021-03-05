@@ -25,7 +25,6 @@ SOFTWARE.
 """
 
 import json
-import os
 import pathlib
 
 
@@ -33,7 +32,6 @@ class Config:
     """
     Constructor and Attributes
     """
-
     def __init__(self):
 
         # Load archive config.json
@@ -49,7 +47,7 @@ class Config:
 
         # Update and Upgrade
         self.__api_repository = self.__config_json["update"]["api_repository"]
-        self.__automatic_upgrades = bool(self.__config_json["update"]["automatic_upgrades"])
+        self.__automatic_verify_upgrades = eval(self.__config_json["update"]["automatic_verify_upgrades"])
 
     @staticmethod
     def target(url):
@@ -102,9 +100,5 @@ class Config:
         return self.__api_repository
 
     @property
-    def get_automatic_upgrades(self) -> bool:
-        return self.__automatic_upgrades
-
-
-# if __name__ == "__main__":
-#     Config()
+    def get_automatic_verify_upgrades(self) -> bool:
+        return self.__automatic_verify_upgrades
