@@ -1,4 +1,6 @@
 # ⚡️ Heimdall ⚡️
+
+![Build](https://github.com/ygorsimoes/Heimdall/workflows/build/badge.svg)
 [![License](https://img.shields.io/badge/License-MIT-critical.svg?style=flat&logo=)](https://github.com/ygorsimoes/Heimdall/blob/master/LICENSE) 
 [![Python3.9](https://img.shields.io/badge/Python-3.9-yellow.svg?style=flat&logo=python)](https://www.python.org/) 
 [![Releases](https://img.shields.io/badge/release-v5.1--stable-green)](https://github.com/ygorsimoes/Heimdall/releases/tag/v5.1-stable)
@@ -14,6 +16,13 @@ Heimdall é uma ferramenta de código aberto projetada para automatizar a busca 
 
 * [`python`](https://www.python.org/): (Only version 3 of python is supported.)
 * [`requests`](https://requests.readthedocs.io/) "A simple, yet elegant HTTP library."
+
+## Capturas de tela
+
+![Screenshot](https://raw.githubusercontent.com/ygorsimoes/Heimdall/master/doc/images/screenshots/5.1-stable/screenshot01.png)
+![Screenshot](https://raw.githubusercontent.com/ygorsimoes/Heimdall/master/doc/images/screenshots/5.1-stable/screenshot02.png)
+
+Você pode visitar a coleção de capturas de tela que demonstram o funcionamento em algumas plataformas clicando [aqui](https://github.com/ygorsimoes/Heimdall/tree/master/doc/images/screenshots).
 
 ## Instalação
 
@@ -44,13 +53,6 @@ Optional Arguments:
    --no-logo              Disable the initial banner
 ```
 
-## Capturas de tela
-
-![Screenshot](https://raw.githubusercontent.com/ygorsimoes/Heimdall/master/doc/images/screenshots/5.1-stable/screenshot01.png)
-![Screenshot](https://raw.githubusercontent.com/ygorsimoes/Heimdall/master/doc/images/screenshots/5.1-stable/screenshot02.png)
-
-Você pode visitar a coleção de capturas de tela que demonstram o funcionamento em algumas plataformas clicando [aqui](https://github.com/ygorsimoes/Heimdall/tree/master/doc/images/screenshots).
-
 ### Exemplos
 
 ```
@@ -62,8 +64,9 @@ Você pode visitar a coleção de capturas de tela que demonstram o funcionament
 
 ## Traduções
 
-* [English](https://github.com/ygorsimoes/Heimdall/blob/master/README.md)
-* [Portuguese](https://github.com/ygorsimoes/Heimdall/blob/master/doc/translations/README-pt-BR.md)
+[![Inglês](https://img.shields.io/badge/en--US-Inglês-blue.svg?style=flat-square&logo=Google%20Translate)](https://github.com/ygorsimoes/Heimdall#%EF%B8%8F-heimdall-%EF%B8%8F)
+[![Português](https://img.shields.io/badge/pt--BR-Português-blue.svg?style=flat-square&logo=Google%20Translate)](https://github.com/ygorsimoes/Heimdall/blob/master/doc/translations/README-pt-BR.md)
 
-# Autor
-* [Ygor Simões (@ygorsimoes)](https://github.com/ygorsimoes/)
+## Autor:
+
+[![Ygor Simões](https://img.shields.io/badge/Perfil-Ygor%20Sim%C3%B5es%20(YG%C3%83O)-red.svg?style=for-the-badge&logo=github)](https://github.com/ygorsimoes/)

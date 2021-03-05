@@ -5,7 +5,6 @@
 [![Python3.9](https://img.shields.io/badge/Python-3.9-yellow.svg?style=flat&logo=python)](https://www.python.org/) 
 [![Releases](https://img.shields.io/badge/release-v5.1--stable-green)](https://github.com/ygorsimoes/Heimdall/releases/tag/v5.1-stable)
 
-
 Heimdall is an open source tool designed to automate fetching from a target site's admin panel using brute force in the wordlist. Developed entirely in Python, it has simple didactic code for study, and is an ideal tool for hacking arsenal.
 
 ![Heimdall2Gif](https://raw.githubusercontent.com/ygorsimoes/Heimdall/master/doc/images/heimdall2.gif)
@@ -17,6 +16,13 @@ It is recommended that you use an operating system with a focus on Pentest.
 
 * [`python`](https://www.python.org/): (Only version 3 of python is supported.)
 * [`requests`](https://requests.readthedocs.io/) "A simple, yet elegant HTTP library."
+
+## Screenshots
+
+![Screenshot](https://raw.githubusercontent.com/ygorsimoes/Heimdall/master/doc/images/screenshots/5.1-stable/screenshot01.png)
+![Screenshot](https://raw.githubusercontent.com/ygorsimoes/Heimdall/master/doc/images/screenshots/5.1-stable/screenshot02.png)
+
+You can visit the collection of screenshots that demonstrate how it works on some platforms by clicking [here](https://github.com/ygorsimoes/Heimdall/tree/master/doc/images/screenshots).
 
 ## Installation
 
@@ -47,13 +53,6 @@ Optional Arguments:
    --no-logo              Disable the initial banner
 ```
 
-## Screenshots
-
-![Screenshot](https://raw.githubusercontent.com/ygorsimoes/Heimdall/master/doc/images/screenshots/5.1-stable/screenshot01.png)
-![Screenshot](https://raw.githubusercontent.com/ygorsimoes/Heimdall/master/doc/images/screenshots/5.1-stable/screenshot02.png)
-
-You can visit the collection of screenshots that demonstrate how it works on some platforms by clicking [here](https://github.com/ygorsimoes/Heimdall/tree/master/doc/images/screenshots).
-
 ### Examples
 
 ```
@@ -65,8 +64,9 @@ You can visit the collection of screenshots that demonstrate how it works on som
 
 ## Translations
 
-* [English](https://github.com/ygorsimoes/Heimdall/blob/master/README.md)
-* [Portuguese](https://github.com/ygorsimoes/Heimdall/blob/master/doc/translations/README-pt-BR.md)
+[![English](https://img.shields.io/badge/en--US-English-blue.svg?style=flat-square&logo=Google%20Translate)](https://github.com/ygorsimoes/Heimdall#%EF%B8%8F-heimdall-%EF%B8%8F)
+[![Portuguese](https://img.shields.io/badge/pt--BR-Portuguese-blue.svg?style=flat-square&logo=Google%20Translate)](https://github.com/ygorsimoes/Heimdall/blob/master/doc/translations/README-pt-BR.md)
 
-# Author
-* [Ygor Simões (@ygorsimoes)](https://github.com/ygorsimoes/)
+## Autor:
+
+[![Ygor Simões](https://img.shields.io/badge/profile-Ygor%20Sim%C3%B5es%20(YG%C3%83O)-red.svg?style=for-the-badge&logo=github)](https://github.com/ygorsimoes/)
