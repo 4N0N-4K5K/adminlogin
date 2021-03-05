@@ -35,12 +35,11 @@ class Config:
     """
 
     def __init__(self):
+
         # Load archive config.json
-        self.path_dir = pathlib.Path("../../../")
-        dir_config_json = self.path_dir.glob("**/config.json")
-        for dir_file in dir_config_json:
-            with open(os.path.realpath(dir_file)) as file_config_json:
-                self.__config_json = json.load(file_config_json)
+        path_dir = pathlib.Path("src/core/config.json")
+        with open(path_dir) as file_config_json:
+            self.__config_json = json.load(file_config_json)
 
         # Specifications
         self.__authors = self.__config_json["specifications"]["author"]
@@ -105,3 +104,7 @@ class Config:
     @property
     def get_automatic_upgrades(self) -> bool:
         return self.__automatic_upgrades
+
+
+# if __name__ == "__main__":
+#     Config()
