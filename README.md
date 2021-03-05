@@ -3,7 +3,7 @@
 ![Build](https://github.com/ygorsimoes/Heimdall/workflows/build/badge.svg)
 [![License](https://img.shields.io/badge/License-MIT-critical.svg?style=flat&logo=)](https://github.com/ygorsimoes/Heimdall/blob/master/LICENSE) 
 [![Python3.9](https://img.shields.io/badge/Python-3.9-yellow.svg?style=flat&logo=python)](https://www.python.org/) 
-[![Releases](https://img.shields.io/badge/release-v5.0--stable-green)](https://github.com/ygorsimoes/Heimdall/releases/tag/v5.0-stable)
+[![Releases](https://img.shields.io/badge/release-v5.1--stable-green)](https://github.com/ygorsimoes/Heimdall/releases/tag/v5.1-stable)
 
 
 Heimdall is an open source tool designed to automate fetching from a target site's admin panel using brute force in the wordlist. Developed entirely in Python, it has simple didactic code for study, and is an ideal tool for hacking arsenal.
@@ -49,8 +49,8 @@ Optional Arguments:
 
 ## Screenshots
 
-![Screenshot](https://raw.githubusercontent.com/ygorsimoes/Heimdall/master/doc/images/screenshots/5.1--stable/screenshot01.png)
-![Screenshot](https://raw.githubusercontent.com/ygorsimoes/Heimdall/master/doc/images/screenshots/5.1--stable/screenshot02.png)
+![Screenshot](https://raw.githubusercontent.com/ygorsimoes/Heimdall/master/doc/images/screenshots/5.1-stable/screenshot01.png)
+![Screenshot](https://raw.githubusercontent.com/ygorsimoes/Heimdall/master/doc/images/screenshots/5.1-stable/screenshot02.png)
 
 You can visit the collection of screenshots that demonstrate how it works on some platforms by clicking [here](https://github.com/ygorsimoes/Heimdall/tree/master/doc/images/screenshots).
 
