@@ -32,7 +32,7 @@ class UserAgent:
     def __init__(self, args):
         self._user_agent = args.user_agent
 
-    def run(self) -> dict[str, str]:
+    def run(self) -> dict:
         """
         Method that reads text files containing thousands of User-Agents
         using the "random" library to generate just one random User-Agent.
