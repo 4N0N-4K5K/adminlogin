@@ -24,20 +24,35 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
 
-from requests import get
+import os
+from src.core.color import Color
 
 
-class Check:
+class Wordlist:
     def __init__(self, args):
-        """
-        Constructor and Attributes
-        """
-        self._url = args.url
-        self._agent = args.user_agent
-        self._proxy = args.proxy
+        self._wordlist = args.wordlist
 
-    def target(self):
-        """
-        Make a request to the target.
-        """
-        request = get(self._url, proxies=self._proxy, headers=self._agent)
+    def run(self):
+        """Opens the text files containing the wordlist."""
+
+        if self._wordlist == "1":
+            wordlist_text = open(os.path.realpath("extra/wordlists/small.txt"), 'r')
+            Color.println("{+} Wordlist Small: 'extra/wordlists/small.txt'")
+
+        elif self._wordlist == "2":
+            wordlist_text = open(os.path.realpath("extra/wordlists/medium.txt"), 'r')
+            Color.println("{+} Wordlist Medium: 'extra/wordlists/medium.txt'")
+
+        elif self._wordlist == "3":
+            wordlist_text = open(os.path.realpath("extra/wordlists/big.txt"), 'r')
+            Color.println("{+} Wordlist Big: 'extra/wordlists/big.txt'")
+
+        else:
+            Color.println("{+} Wordlist Alternative: %s" % self.run())
+            wordlist_text = open(self._wordlist, 'r')
+
+        wordlist = wordlist_text.readlines()
+        wordlist_text.close()
+
+        # Returns the selected wordlist.
+        return wordlist

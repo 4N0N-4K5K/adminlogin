@@ -14,4 +14,4 @@ jobs:
 
       - name: Run a Heimdall!
         run: |
-          ./heimdall.py --url http://testphp.vulnweb.com/ -w 1
+          python3 heimdall.py --url http://testphp.vulnweb.com/ -w 1

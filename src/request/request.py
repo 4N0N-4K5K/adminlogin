@@ -23,3 +23,20 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
+
+from requests import get
+
+
+class Request:
+    def __init__(self, args):
+        self.url = args.url
+        self.user_agent = args.user_agent
+        self.proxy = args.proxy
+
+        self.request_get = get(self.url, headers=self.user_agent, proxies=self.proxy)
+
+    def get(self):
+        return self.request_get
+
+    def check_status(self):
+        return self.request_get.status_code
