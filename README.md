@@ -15,7 +15,7 @@ Heimdall is an open source tool designed to automate fetching from a target site
 It is extremely important that you have the mandatory tools listed below for Heimdall to work as expected.
 It is recommended that you use an operating system with a focus on Pentest.
 
-* [`python`](https://www.python.org/): (Only version 3 of python is supported.)
+* [`python`](https://www.python.org/): "Only version 3 of python is supported."
 * [`requests`](https://requests.readthedocs.io/) "A simple, yet elegant HTTP library."
 
 ## Screenshots
@@ -27,7 +27,6 @@ You can visit the collection of screenshots that demonstrate how it works on som
 ## ⚡️ Installation
 
 You can download the latest tarball by clicking [here](https://github.com/ygorsimoes/Heimdall/tarball/master) or latest zipball by clicking [here](https://github.com/ygorsimoes/Heimdall/zipball/master).
-Any questions, errors or solutions, contact one of the project's developers.
 
 Download the project:
 ```zsh
@@ -39,32 +38,16 @@ Enter the project folder and install:
 $ cd Heimdall && pip3 install -r requirements.txt
 ```
 
-Run:
+Run Heimdall:
 ```zsh
 $ python3 heimdall.py
 ```
 
+Any questions, errors or solutions, contact one of the project's developers.
+
 ## ⚡️ Usage
 
-```
-Usage: python3 heimdall.py --help
-
-Description: Heimdall is an open source tool designed to automate fetching
-             from a target site's admin panel using brute force in the wordlist.
-
-Optional Arguments:
-
-   -h, --help             Show this help message and exit
-   -u URL, --url URL      Target URL (http://testphp.vulnweb.com/)
-   --wordlist (1, 2, 3)   Set wordlist. Default: 1 (Small) and Max: 3 (Big)
-   -p, --proxy            Use a proxy to connect to the target URL
-   --random-proxy         Use a random anonymous proxy
-   --user-agent           Customize the User-Agent. Default: Random User-Agent
-   --update               Upgrade Heimdall to its latest available version.
-
-   --no-update            Disables the intention of updates
-   --no-logo              Disable the initial banner
-```
+![Screenshot](https://raw.githubusercontent.com/ygorsimoes/Heimdall/master/extra/images/screenshots/5.1-stable/screenshot01.png)
 
 ### ⚡️ Examples
 
@@ -78,6 +61,5 @@ Optional Arguments:
 ## ⚡️ Licence
 
 `Heimdall` is made with ♥ by [YGÃO](https://github.com/ygorsimoes) and it's released under the MIT license.
-
 
 [![Ygor Simões](https://img.shields.io/badge/profile-Ygor%20Sim%C3%B5es%20(YG%C3%83O)-red.svg?style=for-the-badge&logo=github)](https://github.com/ygorsimoes/)
