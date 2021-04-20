@@ -1,4 +1,4 @@
-# ⚡️ Heimdall ⚡️ [![English](https://img.shields.io/badge/en--US-English-blue.svg?style=flat-square&logo=Google%20Translate)](https://github.com/ygorsimoes/Heimdall#%EF%B8%8F-heimdall-%EF%B8%8F)
+# ⚡️ Heimdall ⚡️ [![English](https://img.shields.io/badge/en--US-English-blue.svg?style=flat-square&logo=Google%20Translate)](https://github.com/ygorsimoes/Heimdall/blob/master/README.md)
 
 ![Build](https://github.com/ygorsimoes/Heimdall/workflows/build/badge.svg)
 [![License](https://img.shields.io/badge/License-MIT-critical.svg?style=flat&logo=)](https://github.com/ygorsimoes/Heimdall/blob/master/LICENSE) 
