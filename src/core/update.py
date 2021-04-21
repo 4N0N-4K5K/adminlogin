@@ -35,9 +35,11 @@ from src.core.color import Color
 
 
 class Update(Config):
+
     def __init__(self):
-        """ Constructor and Attributes. """
+        """Constructor and Attributes."""
         super().__init__()
+
         self.request = requests
 
     def verify(self, arg_update: bool) -> bool:

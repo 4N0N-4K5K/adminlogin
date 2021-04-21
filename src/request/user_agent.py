@@ -29,7 +29,10 @@ from random import choice
 
 
 class UserAgent:
+
     def __init__(self, args):
+        """Constructor and Attribute"""
+
         self._user_agent = args.user_agent
 
     def run(self) -> dict:

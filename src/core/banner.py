@@ -59,10 +59,8 @@ Optional Arguments:
 
     @staticmethod
     def banner():
-        """
-        Print the pure colored
-        Heimdall banner.
-        """
+        """Print the pure colored Heimdall banner."""
+
         Color.println(r"""{O}________________________________________________________________
                     _               _       _ _ 
           /\  /\___(_)_ __ ___   __| | __ _| | |
@@ -71,10 +69,8 @@ Optional Arguments:
         \/ /_/ \___|_|_| |_| |_|\__,_|\__,_|_|_|{W}""")
 
     def banner_description(self):
-        """
-        Print design and
-        author specifications.
-        """
+        """Print design and author specifications."""
+
         print(f"""\n                      Version: {self.get_version}
     Author: {self.get_author} (Security Researcher)
         GitHub: {self.get_github}""")

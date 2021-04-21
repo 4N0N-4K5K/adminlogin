@@ -29,10 +29,9 @@ import pathlib
 
 
 class Config:
-    """
-    Constructor and Attributes
-    """
+
     def __init__(self):
+        """Constructor and Attributes"""
 
         # Load archive config.json
         path_dir = pathlib.Path("src/core/config.json")
@@ -50,7 +49,7 @@ class Config:
         self.__automatic_verify_upgrades = eval(self.__config_json["update"]["automatic_verify_upgrades"])
 
     @staticmethod
-    def target(url):
+    def target(url) -> str:
         """
         Format the target URL accordingly.
         """
@@ -61,7 +60,7 @@ class Config:
         return url
 
     @staticmethod
-    def target_simple(url):
+    def target_simple(url) -> str:
         """
         Format the target URL as simple.
         """

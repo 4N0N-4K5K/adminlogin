@@ -29,10 +29,13 @@ from src.core.color import Color
 
 
 class Wordlist:
+
     def __init__(self, args):
+        """Constructor and Attribute"""
+
         self._wordlist = args.wordlist
 
-    def run(self):
+    def run(self) -> list[str]:
         """Opens the text files containing the wordlist."""
 
         if self._wordlist == "1":

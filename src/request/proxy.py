@@ -29,7 +29,10 @@ from requests import get
 
 
 class Proxy:
+
     def __init__(self, args):
+        """Constructor and Attributes"""
+
         self._proxy = args.proxy
         self._random_proxy = args.random_proxy
 

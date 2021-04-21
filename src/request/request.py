@@ -24,19 +24,23 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
 
-from requests import get
+from requests import get, Response
 
 
 class Request:
+
     def __init__(self, args):
+        """Constructor and Attribute"""
+
         self.url = args.url
         self.user_agent = args.user_agent
         self.proxy = args.proxy
-
         self.request_get = get(self.url, headers=self.user_agent, proxies=self.proxy)
 
-    def get(self):
+    def get(self) -> Response:
+        """Returns the request made on the target site."""
         return self.request_get
 
-    def check_status(self):
+    def check_status(self) -> int:
+        """Returns the status code made on the target site."""
         return self.request_get.status_code
