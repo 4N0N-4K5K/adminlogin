@@ -35,7 +35,7 @@ class Wordlist:
 
         self._wordlist = args.wordlist
 
-    def run(self) -> list[str]:
+    def run(self) -> list:
         """Opens the text files containing the wordlist."""
 
         if self._wordlist == "1":
