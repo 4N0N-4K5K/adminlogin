@@ -3,7 +3,7 @@
 ![Build](https://github.com/ygorsimoes/Heimdall/workflows/build/badge.svg)
 [![License](https://img.shields.io/badge/License-MIT-critical.svg?style=flat&logo=)](https://github.com/ygorsimoes/Heimdall/blob/master/LICENSE) 
 [![Python3.9](https://img.shields.io/badge/Python-3.9-yellow.svg?style=flat&logo=python)](https://www.python.org/) 
-[![Releases](https://img.shields.io/github/v/release/ygorsimoes/Heimdall?include_prereleases)](https://github.com/ygorsimoes/Heimdall/releases/tag/v5.2.3.9-beta)
+[![Releases](https://img.shields.io/github/v/release/ygorsimoes/Heimdall?include_prereleases)](https://github.com/ygorsimoes/Heimdall/releases/tag/v5.3.3.9-stable)
 [![Last Commit](https://img.shields.io/github/last-commit/ygorsimoes/Heimdall?color=blue&style=flat-square-circle)](https://github.com/ygorsimoes/Heimdall/commits/main)
 
 Heimdall é uma ferramenta de código aberto projetada para automatizar a busca no painel de administração de um site de destino usando força bruta na lista de palavras. Desenvolvido inteiramente em Python, possui código didático simples para estudo, e é uma ferramenta ideal para arsenal de hacking.
