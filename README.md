@@ -3,7 +3,7 @@
 ![Build](https://github.com/ygorsimoes/Heimdall/workflows/build/badge.svg)
 [![License](https://img.shields.io/badge/License-MIT-critical.svg?style=flat&logo=)](https://github.com/ygorsimoes/Heimdall/blob/master/LICENSE) 
 [![Python3.9](https://img.shields.io/badge/Python-3.9-yellow.svg?style=flat&logo=python)](https://www.python.org/) 
-[![Releases](https://img.shields.io/github/v/release/ygorsimoes/Heimdall?include_prereleases)](https://github.com/ygorsimoes/Heimdall/releases/tag/v5.3.3.9-stable)
+[![Releases](https://img.shields.io/github/v/release/ygorsimoes/Heimdall)](https://github.com/ygorsimoes/Heimdall/releases/tag/v5.3.3.9-stable)
 [![Last Commit](https://img.shields.io/github/last-commit/ygorsimoes/Heimdall?color=blue&style=flat-square-circle)](https://github.com/ygorsimoes/Heimdall/commits/main)
 
 Heimdall is an open source tool designed to automate fetching from a target site's admin panel using brute force in the wordlist. Developed entirely in Python, it has simple didactic code for study, and is an ideal tool for hacking arsenal.
