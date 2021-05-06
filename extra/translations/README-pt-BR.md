@@ -47,7 +47,7 @@ Qualquer dúvida, erro ou solução, entre em contato com um dos desenvolvedores
 
 ## ⚡️ Modo de uso
 
-![Screenshot](https://raw.githubusercontent.com/ygorsimoes/Heimdall/master/extra/images/screenshots/5.1-stable/screenshot01.png)
+![Screenshot](https://raw.githubusercontent.com/ygorsimoes/Heimdall/master/extra/images/screenshots/5.3.3.9-stable/help.jpg)
 
 ### ⚡️ Exemplos
 
