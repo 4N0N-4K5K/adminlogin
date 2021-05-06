@@ -26,6 +26,7 @@ SOFTWARE.
 
 import os
 from datetime import datetime
+from threading import Thread
 
 from requests import get
 
@@ -40,50 +41,68 @@ class Finder:
     def __init__(self, args):
         """Constructor and Attributes"""
 
+        self.scanned = []
         self._url = args.url
+        self.threads = args.threads
         self._wordlist = args.wordlist
         self._proxy = args.proxy
         self._user_agent = args.user_agent
+        self.path_out = ""
 
     def dashboard(self) -> None:
-        """Heimdall, find!"""
+        """Heimdall, Dashboard!"""
 
         Color.println("{+} User-Agent: %s" % self._user_agent['User-Agent'])
 
         # Format the target URL as simple and select the output directory.
         url_simple = Config.target_simple(self._url)
-        path_out = os.path.realpath(f"output/{url_simple}/{date_now}/")
+        self.path_out = os.path.realpath(f"output/{url_simple}/{date_now}/")
 
         # Create the output directory.
-        os.makedirs(path_out)
-        Color.println("{+} Output: '%s'" % path_out)
+        os.makedirs(self.path_out)
+        Color.println("{+} Output: '%s'" % self.path_out)
 
         # Creates the "info.txt" file to write the attack specifications.
-        output_info = open(os.path.realpath(f"{path_out}/info.txt"), 'w')
+        output_info = open(os.path.realpath(f"{self.path_out}/info.txt"), 'w')
         output_info.writelines(f"[+] URL (Target): {self._url}\n"
                                f"[+] Proxy: {self._proxy}\n"
                                f"[+] User-Agent: {self._user_agent}\n"
-                               f"[+] Output: {path_out}\n\n"
+                               f"[+] Output: {self.path_out}\n\n"
                                f"[+] Wordlist: {self._wordlist}")
         output_info.close()
 
+    def find(self):
+        """Heimdall, Find! """
+
         # Starts the request loop to the target.
-        Color.println("\n{+} {G}Heimdall, find the dashboard!{W}\n")
         for link in self._wordlist:
 
             target = self._url + link.rstrip("\n")
-            request = get(target, proxies=self._proxy, headers=self._user_agent)
 
-            if request.status_code == 200:
-                # Create the file "sites-found.txt" to write the possible directories found.
-                output_sites_found = open(os.path.realpath(f"{path_out}/sites-found.txt"), 'a')
-                output_sites_found.writelines("\n" + target)
-                output_sites_found.close()
-                Color.println("{+} {G}%s{W}" % target)
+            if target not in self.scanned:
 
-            else:
-                # Creates the file "sites-not-found.txt" to write the directories not found.
-                output_sites_not_found = open(os.path.realpath(f"{path_out}/sites-not-found.txt"), 'a')
-                output_sites_not_found.write("\n" + target)
-                output_sites_not_found.close()
-                Color.println("{-} %s" % target)
+                self.scanned.append(target)
+                request = get(target, proxies=self._proxy, headers=self._user_agent)
+
+                if request.status_code == 200:
+                    # Create the file "sites-found.txt" to write the possible directories found.
+                    output_sites_found = open(os.path.realpath(f"{self.path_out}/sites-found.txt"), 'a')
+                    output_sites_found.writelines("\n" + target)
+                    output_sites_found.close()
+                    Color.println("{+} {G}%s{W}" % target)
+
+                else:
+                    # Creates the file "sites-not-found.txt" to write the directories not found.
+                    output_sites_not_found = open(os.path.realpath(f"{self.path_out}/sites-not-found.txt"), 'a')
+                    output_sites_not_found.write("\n" + target)
+                    output_sites_not_found.close()
+                    Color.println("{-} %s" % target)
+
+    def run(self):
+        try:
+            for j in range(self.threads):
+                th = Thread(target=self.find)
+                th.start()
+
+        except (KeyboardInterrupt, SystemExit) as ex:
+            Color.println("\n{!} CTRL + C has pressed. %s" % ex)

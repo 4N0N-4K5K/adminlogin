@@ -48,6 +48,7 @@ Optional Arguments:
 
    -h, --help             Show this help message and exit
    -u URL, --url URL      Target URL (http://testphp.vulnweb.com/)
+   -t, --threads          Set threads number. Default: 8
    --wordlist (1, 2, 3)   Set wordlist. Default: 1 (Small) and Max: 3 (Big)
    -p, --proxy            Use a proxy to connect to the target URL
    --random-proxy         Use a random anonymous proxy

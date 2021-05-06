@@ -25,6 +25,8 @@ SOFTWARE.
 """
 
 import argparse
+from threading import Thread
+from time import sleep
 
 from src.core.config import Config
 from src.core.color import Color
@@ -55,6 +57,12 @@ parser.add_argument("-u", "--url",
                     type=str,
                     default=False,
                     help="Target URL (https://www.site_target.com/)")
+
+parser.add_argument("-t", "--threads",
+                    action="store",
+                    type=int,
+                    default="8",
+                    help="Set threads number. Default: 8")
 
 parser.add_argument("-w", "--wordlist",
                     action="store",
@@ -155,8 +163,7 @@ if __name__ == '__main__':
         ExploitFinder = Finder(args)  # Instance the "Finder" class.
 
         # Heimdall, find!
-        try:
-            ExploitFinder.dashboard()
-        except KeyboardInterrupt as ex:
-            Color.println("\n{!} CTRL + C has pressed. %s" % ex)
-    Color.println("{+} Finished!    :)")
+        ExploitFinder.dashboard()
+
+        Color.println("\n{+} {G}Heimdall, find the dashboard!{W}\n")
+        ExploitFinder.run()
