@@ -53,6 +53,7 @@ Optional Arguments:
    -p, --proxy            Use a proxy to connect to the target URL
    --random-proxy         Use a random anonymous proxy
    --user-agent           Customize the User-Agent. Default: Random User-Agent
+   --no-redirects         Option to disregard redirects to avoid false positives.
    --update               Upgrade Heimdall to its latest available version.
    
    --no-update            Disables the intention of updates

@@ -47,11 +47,13 @@ class Finder:
         self._wordlist = args.wordlist
         self._proxy = args.proxy
         self._user_agent = args.user_agent
+        self._no_redirects = args.no_redirects
         self.path_out = ""
 
     def dashboard(self) -> None:
         """Heimdall, Dashboard!"""
 
+        Color.println("{+} Follow redirects: %s" % self._no_redirects)
         Color.println("{+} User-Agent: %s" % self._user_agent['User-Agent'])
 
         # Format the target URL as simple and select the output directory.
@@ -67,6 +69,7 @@ class Finder:
         output_info.writelines(f"[+] URL (Target): {self._url}\n"
                                f"[+] Proxy: {self._proxy}\n"
                                f"[+] User-Agent: {self._user_agent}\n"
+                               f"[+] Allow-Redirects: {self._no_redirects}\n"
                                f"[+] Output: {self.path_out}\n\n"
                                f"[+] Wordlist: {self._wordlist}")
         output_info.close()
@@ -82,7 +85,10 @@ class Finder:
             if target not in self.scanned:
 
                 self.scanned.append(target)
+
                 request = get(target, proxies=self._proxy, headers=self._user_agent)
+                if self._no_redirects is False:
+                    request = get(target, proxies=self._proxy, headers=self._user_agent, allow_redirects=self._no_redirects)
 
                 if request.status_code == 200:
                     # Create the file "sites-found.txt" to write the possible directories found.
