@@ -87,6 +87,10 @@ parser.add_argument("--user-agent",
                     default=None,
                     help="Customize the User-Agent. Default: Random User-Agent")
 
+parser.add_argument("--no-redirects",
+                    action="store_false",
+                    help="Disables that redirects should be followed.")
+
 parser.add_argument("--update",
                     action="store_true",
                     default=False,
