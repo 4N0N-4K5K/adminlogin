@@ -1,4 +1,15 @@
 acct_login/
+admin/
+Admin/
+admin1/
+Admin1/
+admin2/
+Admin2/
+admin/login.php/
+login.php/
+Admin/login.php/
+xmlrpc.php/
+wp/
 acesso/
 adimin/
 adiministrador/
@@ -12,6 +23,7 @@ admin/admin/
 admin/admin_login.php
 admin_area/
 admin.html
+administor/
 administer/
 administracao/
 administratoraccounts/
